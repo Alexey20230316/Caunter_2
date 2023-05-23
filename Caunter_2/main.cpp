@@ -1,9 +1,46 @@
 #include<iostream>
+#include"Caunter.h"
+
 
 int main()
 {
 	setlocale(LC_ALL, "Russian");
 
+	int x = 1;         // ввод счетчика с клавы         
+	int z = 1;        // условие выхода из цикла
+	char c;          // да нет
+	std::cout << "’отите установить начальное значение счетчика?    y - yes, n - no" << std::endl;
+	std::cin >> c;
+	if (c == 'y') {
+		std::cout << "¬ведите начальное значение счетчика: " << std::endl;
+		std::cin >> x;
+	}
+
+	Counter p(x);
+
+	while (z)
+	{
+		char n;
+		std::cout << "¬ведите команду ('+', '-', '=' или 'x'): " << std::endl;
+		std::cin >> n;
+		switch (n)
+		{
+		case '+':
+			p.increase();
+			break;
+		case '-':
+			p.reduce();
+			break;
+		case '=':
+			p.show();
+			break;
+		case 'x':
+			z = 0;
+			break;
+		}
+	}
+
 
 
 }
+
